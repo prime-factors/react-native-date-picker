@@ -54,10 +54,7 @@ export const useModal = ({ props, id }) => {
     (params) => {
       if (params.id !== id) return
       closing.current = true
-      const date = Platform.select({
-        ios: params.timestamp,
-        android: params.date,
-      })
+      const date = params.date
       if (props.onConfirm) props.onConfirm(new Date(date))
     },
     [id, props]
@@ -76,10 +73,7 @@ export const useModal = ({ props, id }) => {
   useEffect(() => {
     if (shouldOpenModal(props, previousProps)) {
       closing.current = false
-      const params = Platform.select({
-        android: [props],
-        ios: [props, onConfirm, onCancel],
-      })
+      const params = [props]
       if (!params) throw Error('Unsupported platform')
       NativeModule.openPicker(...params)
     }

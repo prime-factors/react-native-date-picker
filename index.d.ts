@@ -67,7 +67,7 @@ export interface DatePickerProps extends ViewProps {
 
   /**
    * Changes if 24/12-hour format should be determined from the locale or device setting.
-   * "device" is default on android and "locale" on iOS. On iOS this cannot be changed.
+   * "device" is default on android.
    */
   is24hourSource?: 'locale' | 'device'
 
@@ -98,7 +98,7 @@ export interface DatePickerProps extends ViewProps {
   /** Color of the divider on Android */
   dividerColor?: string
 
-  /** Color of the android modal buttons */
+  /** Color of the Android modal buttons */
   buttonColor?: string
 }
 

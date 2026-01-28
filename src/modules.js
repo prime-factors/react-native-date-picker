@@ -11,8 +11,9 @@ export const getNativeComponent = () => {
   try {
     switch (Platform.OS) {
       case 'android':
-      case 'ios':
         return requireNativeComponent('RNDatePicker')
+      case 'ios':
+        return null
       default:
         throw Error(
           'react-native-date-picker is not supported on this platform'
@@ -28,12 +29,12 @@ export const getNativeComponent = () => {
 export const getNativeModule = () => {
   try {
     switch (Platform.OS) {
-      case 'ios':
-        return NativeModules.RNDatePicker
       case 'android':
         return TurboModuleRegistry
           ? TurboModuleRegistry.get('RNDatePicker')
           : NativeModules.RNDatePicker
+      case 'ios':
+        return null
       default:
         throw Error(
           'react-native-date-picker is not supported on this platform'
